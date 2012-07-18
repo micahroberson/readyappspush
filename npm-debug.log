@@ -1,0 +1,50 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'http' ]
+2 info using npm@1.1.36
+3 info using node@v0.8.2
+4 verbose config file /Users/micahroberson/.npmrc
+5 verbose config file /usr/local/etc/npmrc
+6 verbose config file /usr/local/lib/node_modules/npm/npmrc
+7 verbose read json /Users/micahroberson/readyapps/readyappspush/package.json
+8 verbose read json /Users/micahroberson/readyapps/readyappspush/node_modules/express/package.json
+9 verbose read json /Users/micahroberson/readyapps/readyappspush/node_modules/socket.io/package.json
+10 verbose read json /Users/micahroberson/readyapps/readyappspush/node_modules/underscore/package.json
+11 verbose from cache /Users/micahroberson/readyapps/readyappspush/package.json
+12 verbose readDependencies using package.json deps
+13 verbose cache add [ 'http', null ]
+14 silly cache add name=undefined spec="http" args=["http",null]
+15 verbose parsed url { pathname: 'http', path: 'http', href: 'http' }
+16 silly lockFile 77b5f8e3-http http
+17 verbose lock http /Users/micahroberson/.npm/77b5f8e3-http.lock
+18 silly lockFile 77b5f8e3-http http
+19 verbose addNamed [ 'http', '' ]
+20 verbose addNamed [ null, '' ]
+21 silly lockFile c1086ff9-http http@
+22 verbose lock http@ /Users/micahroberson/.npm/c1086ff9-http.lock
+23 silly addNameRange { name: 'http', range: '', hasData: false }
+24 verbose url raw http
+25 verbose url resolving [ 'https://registry.npmjs.org/', './http' ]
+26 verbose url resolved https://registry.npmjs.org/http
+27 info retry registry request attempt 1 at 18:45:36
+28 http GET https://registry.npmjs.org/http
+29 http 404 https://registry.npmjs.org/http
+30 silly registry.get cb [ 404,
+30 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+30 silly registry.get     date: 'Wed, 18 Jul 2012 01:45:37 GMT',
+30 silly registry.get     'content-type': 'application/json',
+30 silly registry.get     'content-length': '52',
+30 silly registry.get     'cache-control': 'must-revalidate' } ]
+31 silly lockFile c1086ff9-http http@
+32 error 404 'http' is not in the npm registry.
+32 error 404 You should bug the author to publish it
+32 error 404
+32 error 404 Note that you can also install from a
+32 error 404 tarball, folder, or http url, or git url.
+33 error System Darwin 10.8.0
+34 error command "node" "/usr/local/bin/npm" "install" "http"
+35 error cwd /Users/micahroberson/readyapps/readyappspush
+36 error node -v v0.8.2
+37 error npm -v 1.1.36
+38 error code E404
+39 error message 404 Not Found: http
+40 verbose exit [ 1, true ]
