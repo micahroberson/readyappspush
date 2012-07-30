@@ -54,7 +54,7 @@ app.post('/activity', function(req, res){
     else
       res.send(404);
   }
-  else {
+  else if(req.body.from !== undefined){
     // Broadcast
     var target = connections[req.body.from];
     if(target) {
@@ -65,13 +65,18 @@ app.post('/activity', function(req, res){
       res.send(404);
     }
   }
+  else {
+    io.sockets.emit(req.body.action, JSON.parse(req.body.item));
+    res.send(200);
+  }
 });
 
 io.sockets.on('connection', function (socket) {
-  
+  var id;
   socket.on('initialize', function(data){
+    id = data.id;
     connections[data.id] = socket;
-    console.log('New connection: ', data.id);
+    console.log('Total Connections: ', Object.keys(connections).length);
   });
 
   socket.on('activity_created', function(activity){
@@ -80,6 +85,20 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('task_created', function(task){
     socket.broadcast.emit('new_task', task);
+  });
+
+  socket.on('project_created', function(project){
+    socket.broadcast.emit('new_project', project);
+  });
+
+  socket.on('shopdrawing_created', function(shopdrawing){
+    socket.broadcast.emit('new_shopdrawing', shopdrawing);
+  });
+
+  socket.on('disconnect', function(){
+    if(socket){
+      delete connections[id];
+    }
   });
 
 });
