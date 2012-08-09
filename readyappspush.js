@@ -68,6 +68,7 @@ app.post('/activity', function(req, res){
     }
   }
   else {
+    console.log('Broadcasting to all users');
     io.sockets.emit(req.body.action, JSON.parse(req.body.item));
     res.send(200);
   }
@@ -95,6 +96,10 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('shopdrawing_created', function(shopdrawing){
     socket.broadcast.emit('new_shopdrawing', shopdrawing);
+  });
+
+  socket.on('quote_created', function(shopdrawing){
+    socket.broadcast.emit('new_quote', shopdrawing);
   });
 
   socket.on('disconnect', function(){
